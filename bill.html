@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puroo Furniture - Billing Terms & Conditions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Body & Typography */
+body {
+    font-family: 'Inter', sans-serif; /* Assumed font based on visual style */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333; /* Dark gray for main text */
+    line-height: 1.6;
+    background-color: #f8f8f8; /* Light background for the page */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px; /* Space after lists */
+}
+
+strong {
+    font-weight: 600; /* Semi-bold for strong text */
+}
+
+/* Header */
+.site-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 5%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Max width for content alignment */
+    margin: 0 auto;
+}
+
+.menu-toggle {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+}
+
+.logo img {
+    height: 35px; /* Adjust logo size */
+    vertical-align: middle;
+}
+
+.contact-icons img {
+    height: 20px; /* Adjust icon size */
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+/* Main Content - Terms & Conditions Page */
+.terms-conditions-page {
+    padding: 40px 5%; /* Top/bottom padding, side padding */
+    max-width: 1000px; /* Max width for content readability */
+    margin: 0 auto;
+    background-color: #fff; /* White background for the content block */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Subtle shadow */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin-top: 30px; /* Space below header */
+    margin-bottom: 50px; /* Space above footer */
+}
+
+.terms-content h1 {
+    font-size: 2.2em;
+    color: #222;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.terms-content p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.terms-content h2.section-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.terms-content ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px; /* Space for custom bullet */
+    color: #555;
+}
+
+.terms-content ul li::before {
+    content: '\2022'; /* Unicode for a solid circle bullet */
+    color: #5cb85c; /* Example color for bullet point - adjust to match the green in image if any, or a subtle gray */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #2c3e50; /* Dark blue/gray, adjust to match exact footer color */
+    color: #ecf0f1; /* Light text color */
+    padding: 50px 5%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns as per image */
+    gap: 30px; /* Space between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h4 {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space for arrow icon */
+}
+
+.footer-column h4 .arrow-down {
+    /* Styles for the small down arrow next to titles */
+    border: solid #ecf0f1;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-left: 5px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.footer-column.footer-logo {
+    text-align: center;
+}
+
+.footer-column.footer-logo img {
+    max-width: 120px; /* Adjust footer logo size */
+    height: auto;
+}
+
+.social-icons a img {
+    height: 24px; /* Size for social icons */
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .terms-conditions-page {
+        padding: 30px 4%;
+    }
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+        gap: 20px;
+    }
+    .footer-column.footer-logo {
+        grid-column: 1 / -1; /* Center logo in its own row */
+        order: -1; /* Move logo to the top */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .menu-toggle, .contact-icons {
+        margin-top: 10px;
+    }
+
+    .terms-conditions-page {
+        padding: 25px 3%;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .terms-content h1 {
+        font-size: 1.8em;
+    }
+    .terms-content h2.section-title {
+        font-size: 1.3em;
+    }
+    .terms-content p, .terms-content ul li {
+        font-size: 0.9em;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 20px;
+    }
+    /* Hide arrow for smaller screens if they cause issues with layout */
+    .footer-column h4 .arrow-down {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        text-align: center;
+    }
+    .footer-column h4 {
+        justify-content: center; /* Center column titles */
+    }
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .social-icons a img {
+        margin-right: 0; /* Remove extra margin */
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="menu-toggle">Menu</div>
+            <div class="logo">
+                <img src="puroo-logo.png" alt="Puroo Furniture Logo">
+            </div>
+            <div class="contact-icons">
+                <a href="tel:"><img src="phone-icon.png" alt="Phone"></a>
+                <a href="mailto:"><img src="mail-icon.png" alt="Email"></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="terms-conditions-page">
+        <section class="terms-content">
+            <h1>Billing Terms & Conditions</h1>
+            <p>Welcome to <strong>Puroo Furniture</strong>! By placing an order with us, you agree to abide by the following billing terms and conditions. These terms outline the policies regarding payments, charges, and billing information.</p>
+
+            <h2 class="section-title">1. Payment Methods</h2>
+            <p>We accept the following payment methods:</p>
+            <ul>
+                <li><strong>Credit/Debit Cards:</strong> Visa, MasterCard, American Express.</li>
+                <li><strong>Online Payment Gateways:</strong> PayPal, Stripe, or other options displayed at checkout.</li>
+                <li><strong>Bank Transfers:</strong> (If applicable): Payment must be received before order processing begins.</li>
+            </ul>
+
+            <h2 class="section-title">2. Pricing</h2>
+            <ul>
+                <li>All prices listed on our website are in <strong>[currency, e.g., USD or BDT]</strong> and include applicable taxes unless stated otherwise.</li>
+                <li>Prices are subject to change without prior notice. However, prices at the time of purchase will remain applicable for that transaction.</li>
+                <li>Discounts, promotions, and offers are valid only within the stated timeframe.</li>
+            </ul>
+
+            <h2 class="section-title">3. Order Confirmation</h2>
+            <ul>
+                <li>Once payment is successfully processed, you will receive an <strong>order confirmation email</strong> with details of your purchase.</li>
+                <li>If you do not receive an email, please check your spam/junk folder or contact our customer support.</li>
+            </ul>
+
+            <h2 class="section-title">4. Payment Security</h2>
+            <ul>
+                <li>All payments are processed through secure, encrypted payment gateways to ensure the protection of your financial information.</li>
+                <li><strong>Puroo Furniture</strong> does not store your credit card or payment details.</li>
+            </ul>
+
+            <h2 class="section-title">5. Failed or Declined Transactions</h2>
+            <ul>
+                <li>If your payment fails or is declined by your financial institution, your order will not be processed.</li>
+                <li>We reserve the right to cancel the order if you fail to provide a valid payment method.</li>
+            </ul>
+
+            <h2 class="section-title">6. Billing Information</h2>
+            <ul>
+                <li>It is your responsibility to provide accurate and complete billing details during checkout.</li>
+                <li>In case of discrepancies, our team may contact you to verify your details.</li>
+            </ul>
+
+            <h2 class="section-title">7. Taxes and Fees</h2>
+            <ul>
+                <li>Additional charges such as taxes, customs duties, or shipping fees (if applicable) will be displayed at checkout.</li>
+                <li>Any local or international fees incurred during delivery are the customer's responsibility.</li>
+            </ul>
+
+            <h2 class="section-title">8. Refunds and Chargebacks</h2>
+            <ul>
+                <li>Refunds will be issued in accordance with our <strong>Refund & Return Policy</strong>.</li>
+                <li>Unauthorized chargebacks may result in further investigation, and we reserve the right to contest any fraudulent claims.</li>
+            </ul>
+
+            <h2 class="section-title">9. Cancellation Policy</h2>
+            <ul>
+                <li>Orders can be cancelled within <strong>24 hours</strong> of placement, provided they haven't been shipped.</li>
+                <li>Refunds for cancellations will be processed as per our refund policy.</li>
+            </ul>
+
+            <h2 class="section-title">10. Contact Us</h2>
+            <p>For any billing inquiries, please contact us at:</p>
+            <p><strong>Email:</strong> [your email address]<br>
+            <strong>Phone:</strong> [your phone number]<br>
+            <strong>Office Address:</strong> [your office address]</p>
+            <p>By making a purchase on <strong>Puroo Furniture</strong>, you acknowledge that you have read and agreed to these Billing Terms & Conditions.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>PAYMENT AVAILABLE <span class="arrow-down"></span></h4>
+                <ul>
+                    <li>Credit Cards</li>
+                    <li>PayPal</li>
+                    <li>Bank Transfer</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>QUICK LINKS <span class="arrow-down"></span></h4>
+                <ul>
+                    <li>About Us</li>
+                    <li>Shipping Policy</li>
+                    <li>Return Policy</li>
+                </ul>
+            </div>
+            <div class="footer-column footer-logo">
+                <img src="puroo-logo-footer.png" alt="Puroo Furniture Footer Logo">
+            </div>
+            <div class="footer-column">
+                <h4>CONTACT INFO <span class="arrow-down"></span></h4>
+                <p>Email: info@example.com</p>
+                <p>Phone: (91) 456-7890</p>
+                <p>Address: 123 Street Name</p>
+            </div>
+            <div class="footer-column">
+                <h4>FOLLOW US <span class="arrow-down"></span></h4>
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

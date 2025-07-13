@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/images/puroo-fav.PNG" type="image/png">
+    <title>Puroo Furniture – Furnishing Your Dreams</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./assets/css/regular.min.css">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/shop.css">
+
+    <style>
+        .open {
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        .search-open {
+            visibility: visible !important;
+            width: 200px !important;
+        }
+
+        .close {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="header">
+                    <div class="menu-area">
+                        <div class="menu-icon">
+                            <i class="fa-solid fa-bars" onclick="toggleSidebar()"></i>
+                        </div>
+                        <div class="mainmenu" id="mainmenu">
+                            <ul id="navigation">
+                                <li><a href="shop.html">Shop</a></li>
+                                <li><a href="index2.html">About</a></li>
+                                <li><a href="index2.html">Billing Terms & Conditions</a></li>
+                                <li><a href="index2.html">Refund and Returns Policy</a></li>
+                                <li><a href="">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="logo">
+                        <a href="">
+                            <img src="./assets/images/puroo-web-final-logo.png" alt="Puroo" srcset="">
+                        </a>
+                    </div>
+
+
+                    <div class="search-area">
+                        <input type="search" name="" id="search" placeholder="keywords...">
+                        <span onclick="toggleSearchbar()"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span><a href="tel:+000000"><i class="fa-solid fa-phone"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="products-area">
+        <div class="container-fluid">
+
+            <div class="product-search">
+                <h2>20 Product's</h2>
+                <select name="orderby" class="orderby" aria-label="Shop order">
+                    <option value="menu_order">Default sorting</option>
+                    <option value="popularity">Sort by popularity</option>
+                    <option value="rating">Sort by average rating</option>
+                    <option value="date">Sort by latest</option>
+                    <option value="price">Sort by price: low to high</option>
+                    <option value="price-desc">Sort by price: high to low</option>
+                    <option value="title">Sort by title: a to z</option>
+                    <option value="title-desc">Sort by title: z to a</option>
+                </select>
+            </div>
+            <!--                 
+                <div class="product-categories">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/bed.png" alt="bed" srcset="">
+                                    <h4>Bed</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/sofa.png" alt="bed" srcset="">
+                                    <h4>Sofa</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/kitchen.png" alt="bed" srcset="">
+                                    <h4>Kitchen</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/chair.png" alt="bed" srcset="">
+                                    <h4>Chair</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/table.png" alt="bed" srcset="">
+                                    <h4>Table</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/storage.png" alt="bed" srcset="">
+                                    <h4>Storage</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/furniture.png" alt="bed" srcset="">
+                                    <h4>Furniture</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/corporate.png" alt="bed" srcset="">
+                                    <h4>Corporate</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/art-and-sculpture.png" alt="bed" srcset="">
+                                    <h4>Art & Sculpture</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="product-category">
+                                <a href="">
+                                    <img src="./assets/images/category/kids-fun.png" alt="bed" srcset="">
+                                    <h4>Kids Fun</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+            <div class="product-categories">
+
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/bed.png" alt="bed" srcset="">
+                        Bed
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/sofa.png" alt="bed" srcset="">
+                        Sofa
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/kitchen.png" alt="bed" srcset="">
+                        Kitchen
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/chair.png" alt="bed" srcset="">
+                        Chair
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/table.png" alt="bed" srcset="">
+                        Table
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/storage.png" alt="bed" srcset="">
+                        Storage
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/furniture.png" alt="bed" srcset="">
+                        Furniture
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/corporate.png" alt="bed" srcset="">
+                        <span>Corporate</span>
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/art-and-sculpture.png" alt="bed" srcset="">
+                        Art & Sculpture
+                    </a>
+                </div>
+                <div class="product-category">
+                    <a href="">
+                        <img src="./assets/images/category/kids-fun.png" alt="bed" srcset="">
+                        Kids Fun
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-area">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed-003.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                                <div class="product-btn-inner">
+                                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/chair-001.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Chair</h5>
+                                    <h5 class="product-name">Chair</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                                
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/study-table-003.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Uncategorized</h5>
+                                    <h5 class="product-name">Compact Foldable Study Table</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                                
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Elegance Wooden Queen Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                               
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/paceholder.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Table</h5>
+                                    <h5 class="product-name">Elegant Marble Dining Table</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                               
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/study-table-001.png" alt="" srcset="">
+                                 <div class="product-info">
+                                    <h5 class="category-name">Table</h5>
+                                    <h5 class="product-name">Executive Study Desk with Storage</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                               
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/chair-004.jpg" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Chair</h5>
+                                    <h5 class="product-name">KLEBER</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                              
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/Dressing-Table-001.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Table</h5>
+                                    <h5 class="product-name">Luxe Vanity Dressing Table with Mirror</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                              
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                              
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                              
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                              
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                              
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                               
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="single-product">
+                            <a href="" class="single-product-link">
+                                <img src="./assets/images/bed.png" alt="" srcset="">
+                                <div class="product-info">
+                                    <h5 class="category-name">Bed</h5>
+                                    <h5 class="product-name">Bed</h5>
+                                    <h4 class="product-price">20000.00</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">
+            <a href="" target="_blank">
+                <img src="./assets/images/puroo-web-final-logo-footer.png">
+            </a>
+            <ul class="social-footer">
+                <li><a href="https://www.facebook.com/mahabub.alam.1481"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li><a href=""><i class="fa-brands fa-square-instagram"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-text">
+            <div class="footer-menu">
+                <ul class="footer-nav">
+                    <li><a href="index.html">Shop</a></li>
+                    <li><a href="index2.html">About</a></li>
+                    <li><a href="index2.html">Billing Terms & Conditions</a></li>
+                    <li><a href="index2.html">Refund and Returns Policy</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/fontawesome.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mainmenu');
+            sidebar.classList.toggle('open');
+        }
+        function toggleSearchbar() {
+            const sidebar = document.getElementById('search');
+            sidebar.classList.toggle('search-open');
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       
+
+        .category-feature {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            grid-auto-rows: 300px 300px 300px 300px;
+            grid-gap: 10px;
+        }
+         .category-item {         
+            background: #E9EFEF;   
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+         .category-item img {            
+            max-width: 100%;
+             max-height: 100%;
+        }
+        .category-item a {
+            text-align: center;
+            background: #97979780;
+            display: block;
+            padding: 10px 0;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-decoration: none;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        .category-item {
+            position: relative;
+        }
+
+        .corporate {
+            grid-column: 1 / span 3;
+            grid-row: 1 / span 2;
+        }
+
+        .sofa {
+            grid-column: 4 / span 2;
+            grid-row: 1 / span 1;
+        }
+
+        .branding {
+            grid-column: 6 / span 1;
+            background-color: #E9EFEF;
+            grid-row: 1 / span 3;
+        }
+
+        .bed {
+            grid-column: 7 / span 3;
+            grid-row: 1 / span 1;
+        }
+
+        .storage {
+            grid-column: 1 / span 3;
+            grid-row: 3 / span 1;
+        }
+
+        .kitchen {
+            grid-column: 4 / span 2;
+            grid-row: 2 /span 2;
+        }
+
+        .table {
+            grid-column: 7 / span 3;
+            grid-row: 2 / span 1;
+        }
+
+        .chair {
+            grid-column: 7 / span 3;
+            grid-row: 3 / span 1;
+        }
+
+        .puroo-special {
+            grid-column: 1 / span 3;
+        }
+
+        .art-sculpture {
+            grid-column: 4 / span 3;
+            grid-row: 4 / span 1;
+        }
+
+        .kids-furniture {
+            grid-column: 7 / span 3;
+            grid-row: 4 / span 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="category-area">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="category-feature">
+                    <div class="category-item corporate">
+                        <img src="./assets/images/corporate.png" alt="Corporate">
+                        <a href="">Corporate</a>
+                    </div>
+                    <div class="category-item sofa">
+                        <img src="./assets/images/sofa.png" alt="Sofa">
+                        <a href="">Sofa</a>
+                    </div>
+                    <div class="category-item branding">
+                        <img src="./assets/images/branding.png" alt="Puroo Logo">
+
+                    </div>
+                    <div class="category-item bed">
+                        <img src="./assets/images/bed.png" alt="Bed">
+                        <a href="">Bed</a>
+                    </div>
+
+                    <div class="category-item storage">
+                        <img src="./assets/images/storage.png" alt="Storage">
+                        <a href="">Storage</a>
+                    </div>
+                    <div class="category-item kitchen">
+                        <img src="./assets/images/kitchen.png" alt="Kitchen">
+                        <a href="">Kitchen</a>
+                    </div>
+                    <!-- <div class="category-item">
+                            <img src="puroo-logo-icon.png" alt="Puroo Logo Icon" class="logo-icon">
+                            <a href="">puroo furniture</a>
+                            <div class="microphone-icon"></div>
+                        </div> -->
+                    <div class="category-item table">
+                        <img src="./assets/images/table.png" alt="Table">
+                        <a href="">Table</a>
+                    </div>
+                    <div class="category-item puroo-special">
+                        <img src="./assets/images/puroo-special.png" alt="Puroo Special">
+                        <a href="">Puroo Special</a>
+                    </div>
+                    <div class="category-item chair">
+                        <img src="./assets/images/chair.png" alt="Chair">
+                        <a href="">Chair</a>
+                    </div>
+                    <div class="category-item art-sculpture">
+                        <img src="./assets/images/art-sculpture.png" alt="Art & Sculpture">
+                        <a>Art & Sculpture</a>
+                    </div>
+                    <div class="category-item kids-furniture">
+                        <img src="./assets/images/kids-fun.png" alt="Kids Furniture">
+                        <a href="">Kids Furniture</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

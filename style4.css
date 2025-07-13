@@ -1,0 +1,555 @@
+/* Basic Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Replace with actual font */
+    line-height: 1.6;
+    color: #333; /* Replace with actual text color */
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust as needed */
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.contact-info span {
+    margin-left: 15px;
+    font-size: 1.2em;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    background-color: #f0f8f9; /* Light background from image */
+    padding: 50px 5%;
+    gap: 30px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #333; /* Adjust color */
+}
+
+.hero-content p {
+    margin-bottom: 30px;
+    color: #666; /* Adjust color */
+}
+
+.explore-button {
+    background-color: #ff6a00; /* Orange color from image */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+/* Categories Section Wrapper */
+.categories-section {
+    background-color: #eef7f8; /* Light background from the image */
+    padding: 50px 5%; /* Adjust padding as needed */
+    display: flex; /* Use flex to center the grid and the about section */
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+}
+
+/* Main Grid Container */
+.category-grid {
+    display: grid;
+    /* Define explicit rows with auto-fill to allow content to dictate height,
+       or use a fixed row height with span for more control.
+       Let's try a 4-column base structure and then span. */
+    grid-template-columns: repeat(4, 1fr); /* 4 conceptual columns */
+    grid-auto-rows: minmax(150px, auto); /* Minimum row height, but allow to grow */
+    gap: 15px; /* Gap between grid items, adjust as seen in image */
+    width: 100%; /* Ensure grid takes full width available in section */
+    max-width: 1200px; /* Optional: Constrain grid width on very large screens */
+}
+
+.category-item {
+    background-color: #fff;
+    padding: 15px; /* Adjust padding for items */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Push text to the bottom */
+    position: relative; /* For image positioning */
+    overflow: hidden; /* To prevent images from overflowing */
+    text-align: center; /* Center category name */
+}
+
+.category-item img {
+    max-width: 90%; /* Max width relative to its parent grid cell */
+    height: auto;
+    object-fit: contain;
+    position: absolute; /* Position images within the box */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+    max-height: 80%; /* Limit image height within the box */
+    /* Adjust specific image positioning if some need to be higher/lower */
+}
+
+.category-item p {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: auto; /* Pushes the text to the bottom */
+    padding-top: 10px; /* Space above text if image is not taking full height */
+    z-index: 2; /* Ensure text is on top of image if overlap */
+}
+
+/* Specific item spanning based on visual analysis of the image */
+/* This requires careful manual adjustment and might vary slightly based on exact pixel measurements */
+
+/* Left Column items */
+.corporate {
+    grid-column: 1 / span 1; /* Starts at column 1, spans 1 column */
+    grid-row: 1 / span 2; /* Spans 2 rows */
+}
+.storage {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 2; /* Adjust row start based on 'corporate' ending */
+}
+.puroo-special {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 2; /* Adjust row start */
+}
+
+/* Middle Column items */
+.sofa {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1; /* Seems to be a single row item */
+}
+.kitchen {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 2; /* Spans 2 rows, starting after sofa */
+}
+.art-sculpture {
+    grid-column: 2 / span 1;
+    grid-row: 4 / span 2; /* Spans 2 rows, starting after kitchen */
+}
+
+/* Right Column items */
+.bed {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+}
+.table {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+}
+.chair {
+    grid-column: 3 / span 1;
+    grid-row: 3 / span 2; /* Chair looks taller, spans 2 rows */
+}
+.kids-furniture {
+    grid-column: 3 / span 1;
+    grid-row: 5 / span 2; /* Kids furniture looks taller, spans 2 rows */
+}
+
+/* Vertical Branding Element ("puroo furniture") */
+.vertical-branding {
+    grid-column: 4 / span 1; /* Last column */
+    grid-row: 1 / span 6; /* Spans all 6 rows to cover the height */
+    background-color: #f7fcff; /* Very light background for this specific element */
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+    color: #cadbdc; /* Light grey text color */
+    font-weight: bold;
+    font-size: 1.5em; /* Adjust font size */
+    position: relative; /* For absolute positioning of text/icon if needed */
+}
+
+.vertical-branding .logo-icon {
+    width: 60px; /* Adjust size of the puroo icon */
+    height: auto;
+    margin-bottom: 10px; /* Space below icon */
+}
+
+.vertical-branding p {
+    writing-mode: vertical-rl; /* Rotate text vertically, right to left */
+    transform: rotate(180deg); /* Flip it to read from bottom up */
+    text-orientation: mixed; /* Keeps characters upright, not sideways */
+    margin: 0; /* Remove default paragraph margin */
+    white-space: nowrap; /* Prevent wrapping */
+    color: inherit; /* Inherit color from parent */
+    letter-spacing: 2px; /* Adjust letter spacing */
+}
+
+.vertical-branding .microphone-icon {
+    /* Style for the microphone icon if it's a separate element */
+    width: 30px; /* Example size */
+    height: 30px;
+    background-color: #cadbdc; /* Example color */
+    border-radius: 50%;
+    margin-top: 10px;
+    display: none; /* Hide if it's just a background element for now */
+}
+
+
+/* "About PUROO" button section - outside the main grid for centering */
+.about-puroo {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    width: 100%; /* Ensure it spans the full width of its parent */
+}
+
+.about-puroo button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.about-puroo p {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Responsive Design for the Categories Section (Updated) */
+@media (max-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr); /* Change to 3 columns for tablets */
+        grid-auto-rows: minmax(120px, auto); /* Adjust min row height */
+    }
+
+    /* Reset specific spans for tablet, or redefine them for the 3-column layout */
+    /* This requires re-evaluating the desired layout on tablet */
+    .corporate { grid-column: 1 / span 1; grid-row: 1 / span 2; }
+    .sofa { grid-column: 2 / span 1; grid-row: 1 / span 1; }
+    .bed { grid-column: 3 / span 1; grid-row: 1 / span 1; }
+
+    .storage { grid-column: 1 / span 1; grid-row: 3 / span 2; }
+    .kitchen { grid-column: 2 / span 1; grid-row: 2 / span 2; }
+    .vertical-branding { /* Re-position vertical branding */
+        grid-column: 3 / span 1;
+        grid-row: 2 / span 4; /* Adjust span for 4 rows in this layout */
+        font-size: 1.2em; /* Smaller font */
+    }
+    .table { grid-column: 3 / span 1; grid-row: 6 / span 1; } /* Moved table */
+
+    .chair { grid-column: 1 / span 1; grid-row: 5 / span 2; }
+    .puroo-special { grid-column: 2 / span 1; grid-row: 4 / span 2; }
+    .art-sculpture { grid-column: 2 / span 1; grid-row: 6 / span 2; } /* May need adjustment */
+    .kids-furniture { grid-column: 3 / span 1; grid-row: 5 / span 2; } /* Adjust row span */
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+        grid-auto-rows: minmax(100px, auto); /* Even smaller min row height */
+    }
+
+    /* Redefine spans for 2-column layout */
+    .corporate { grid-column: 1 / span 1; grid-row: 1 / span 2; }
+    .sofa { grid-column: 2 / span 1; grid-row: 1 / span 1; }
+    .bed { grid-column: 2 / span 1; grid-row: 2 / span 1; }
+
+    .vertical-branding {
+        grid-column: 1 / span 2; /* Spans both columns */
+        grid-row: auto; /* Let it flow normally */
+        writing-mode: horizontal-tb; /* Horizontal text */
+        transform: none; /* No rotation */
+        text-align: center;
+        margin: 20px 0; /* Add margin */
+        padding: 10px;
+        font-size: 1em;
+        .logo-icon { display: none; } /* Hide logo icon for small screens if too cramped */
+    }
+
+    .storage { grid-column: 1 / span 1; grid-row: 3 / span 2; } /* Adjust row numbers */
+    .kitchen { grid-column: 2 / span 1; grid-row: 3 / span 2; }
+    .table { grid-column: 1 / span 1; grid-row: 5 / span 1; }
+    .chair { grid-column: 2 / span 1; grid-row: 5 / span 2; }
+    .puroo-special { grid-column: 1 / span 1; grid-row: 6 / span 2; }
+    .art-sculpture { grid-column: 1 / span 1; grid-row: 8 / span 2; }
+    .kids-furniture { grid-column: 2 / span 1; grid-row: 7 / span 2; }
+}
+
+@media (max-width: 480px) {
+    .category-grid {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+        grid-auto-rows: minmax(80px, auto); /* Even smaller min row height */
+    }
+    /* All items will flow naturally in a single column.
+       No specific `grid-row`/`grid-column` spans needed here as they will stack.
+       You might remove the `grid-column`/`grid-row` properties for .category-item
+       or set them to `unset` within this media query. */
+    .category-item {
+        grid-column: unset !important;
+        grid-row: unset !important;
+    }
+    .vertical-branding {
+        /* Ensure branding is still visible and correctly formatted */
+        grid-column: 1 / span 1;
+        text-align: center;
+        font-size: 0.9em;
+        margin: 15px 0;
+    }
+}
+
+/* Responsive Design for Categories Section */
+@media (max-width: 1024px) {
+    .categories-section {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+    }
+    .side-text {
+        right: 1%; /* Adjust position slightly for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+    .side-text {
+        /* On smaller screens, you might want to move it or hide it,
+           or remove the rotation and place it above the grid.
+           Example: */
+        position: static;
+        transform: none;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2em; /* Smaller font for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-section {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+    .category-item {
+        min-height: 200px; /* Adjust height for single column */
+    }
+}
+
+.side-text {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg); /* Rotate for vertical text */
+    transform-origin: top right;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ccc; /* Light grey */
+    white-space: nowrap;
+}
+
+.about-puroo {
+    grid-column: 1 / -1; /* Spans all columns */
+    text-align: center;
+    margin-top: 30px;
+}
+
+.about-puroo button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Video Section */
+.video-section {
+    padding: 50px 5%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.video-placeholder {
+    background-image: url('video-bg.jpg'); /* Replace with actual background image */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2em;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden; /* To contain pseudo-elements for overlay */
+}
+
+.video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1;
+}
+
+.video-placeholder p {
+    z-index: 2; /* Bring text above overlay */
+}
+
+.play-button {
+    /* Style for the play button icon */
+    position: absolute;
+    z-index: 3;
+    width: 60px;
+    height: 60px;
+    background-color: #ff6a00; /* Orange */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* Add a play icon using a pseudo-element or SVG */
+}
+
+.watch-youtube {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.watch-youtube img {
+    height: 20px; /* Adjust size */
+    margin-left: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #333; /* Dark background */
+    color: #fff;
+    padding: 50px 5%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Adjust as needed */
+    gap: 20px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+    color: #ff6a00; /* Orange */
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-logo img {
+    max-width: 120px;
+    height: auto;
+}
+
+/* Responsive Design (Media Queries) */
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 30px;
+    }
+    .categories-section {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+    }
+    .side-text {
+        right: 0;
+        top: 0;
+        transform: none; /* Remove rotation for smaller screens or adjust */
+        position: static; /* Make it flow with content or reposition */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        margin-top: 15px;
+    }
+    .contact-info {
+        margin-top: 15px;
+    }
+    .categories-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        text-align: center;
+    }
+    .footer-logo {
+        order: -1; /* Move logo to top on mobile */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .categories-section {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}
