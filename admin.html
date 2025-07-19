@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6f42c1;
+            --secondary-color: #495057;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --info-color: #17a2b8;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --sidebar-width: 250px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--sidebar-width);
+            background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+            color: white;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .sidebar-header h4 {
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .sidebar-header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .sidebar-nav {
+            padding: 20px 0;
+        }
+
+        .sidebar-nav .nav-item {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .sidebar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .sidebar-nav .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-left: 4px solid white;
+        }
+
+        .sidebar-nav .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .main-content.shifted {
+            margin-left: var(--sidebar-width);
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 5px;
+            margin-right: 15px;
+        }
+
+        .toggle-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Dashboard Cards */
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .stat-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .stat-card.primary .icon { color: var(--primary-color); }
+        .stat-card.success .icon { color: var(--success-color); }
+        .stat-card.warning .icon { color: var(--warning-color); }
+        .stat-card.danger .icon { color: var(--danger-color); }
+
+        /* Chart Container */
+        .chart-container {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        /* Table Styles */
+        .table-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 15px;
+        }
+
+        .table td {
+            padding: 15px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .badge {
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content.shifted {
+                margin-left: 0;
+            }
+
+            .stat-card {
+                padding: 20px 15px;
+            }
+
+            .stat-card .icon {
+                font-size: 2.5rem;
+            }
+
+            .stat-card h3 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+            font-size: 14px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.15);
+        }
+
+        .form-select {
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+            font-size: 14px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.15);
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #6c757d;
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(111, 66, 193, 0.05);
+        }
+
+        .file-upload-label.dragover {
+            border-color: var(--primary-color);
+            background-color: rgba(111, 66, 193, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a2d91;
+            border-color: #5a2d91;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #545b62;
+            border-color: #545b62;
+            transform: translateY(-2px);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* Overlay for mobile */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h4><i class="fas fa-tachometer-alt"></i> AdminPro</h4>
+            <p>Control Panel</p>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-users"></i> Users
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-section="products">
+                    <i class="fas fa-shopping-cart"></i> Products
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-file-alt"></i> Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-envelope"></i> Messages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        </ul>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Header -->
+        <header class="header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <button class="toggle-btn" id="toggleBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <span class="navbar-brand">Dashboard</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> Admin
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="container-fluid p-4">
+            <!-- Dashboard Section -->
+            <div class="content-section active" id="dashboard-section">
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="dashboard-card stat-card primary fade-in-up">
+                            <div class="icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>1,234</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="dashboard-card stat-card success fade-in-up">
+                            <div class="icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3>567</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="dashboard-card stat-card warning fade-in-up">
+                            <div class="icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h3>$89,234</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="dashboard-card stat-card danger fade-in-up">
+                            <div class="icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>23.4%</h3>
+                            <p>Growth Rate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row mb-4">
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="dashboard-card fade-in-up">
+                            <h5 class="mb-3"><i class="fas fa-chart-area"></i> Sales Overview</h5>
+                            <div class="chart-container">
+                                <i class="fas fa-chart-line fa-3x"></i>
+                                <div class="ms-3">
+                                    <h6>Chart Placeholder</h6>
+                                    <p>Interactive chart would go here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="dashboard-card fade-in-up">
+                            <h5 class="mb-3"><i class="fas fa-chart-pie"></i> Traffic Sources</h5>
+                            <div class="chart-container">
+                                <i class="fas fa-chart-pie fa-3x"></i>
+                                <div class="ms-3">
+                                    <h6>Pie Chart</h6>
+                                    <p>Traffic analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-container fade-in-up">
+                            <div class="p-4">
+                                <h5 class="mb-3"><i class="fas fa-list"></i> Recent Orders</h5>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Product</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#12345</td>
+                                            <td>John Doe</td>
+                                            <td>Laptop Pro</td>
+                                            <td>$1,299</td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                            <td>2024-01-15</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12346</td>
+                                            <td>Jane Smith</td>
+                                            <td>Smartphone</td>
+                                            <td>$799</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>2024-01-14</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12347</td>
+                                            <td>Mike Johnson</td>
+                                            <td>Headphones</td>
+                                            <td>$199</td>
+                                            <td><span class="badge bg-info">Processing</span></td>
+                                            <td>2024-01-13</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12348</td>
+                                            <td>Sarah Wilson</td>
+                                            <td>Tablet</td>
+                                            <td>$449</td>
+                                            <td><span class="badge bg-danger">Cancelled</span></td>
+                                            <td>2024-01-12</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12349</td>
+                                            <td>David Brown</td>
+                                            <td>Smart Watch</td>
+                                            <td>$299</td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                            <td>2024-01-11</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="content-section" id="products-section">
+                <div class="page-header fade-in-up">
+                    <h2><i class="fas fa-plus-circle"></i> Add New Product</h2>
+                    <p>Create a new product and add it to your inventory</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="form-container fade-in-up">
+                            <form id="productForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productName" class="form-label">Product Name *</label>
+                                            <input type="text" class="form-control" id="productName" placeholder="Enter product name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productSku" class="form-label">SKU *</label>
+                                            <input type="text" class="form-control" id="productSku" placeholder="Enter SKU" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="productDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="productDescription" rows="4" placeholder="Enter product description"></textarea>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productPrice" class="form-label">Price *</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="productPrice" placeholder="0.00" step="0.01" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productComparePrice" class="form-label">Compare Price</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="productComparePrice" placeholder="0.00" step="0.01">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productCategory" class="form-label">Category *</label>
+                                            <select class="form-select" id="productCategory" required>
+                                                <option value="">Select Category</option>
+                                                <option value="electronics">Electronics</option>
+                                                <option value="clothing">Clothing</option>
+                                                <option value="books">Books</option>
+                                                <option value="home">Home & Garden</option>
+                                                <option value="sports">Sports</option>
+                                                <option value="toys">Toys</option>
+                                                <option value="health">Health & Beauty</option>
+                                                <option value="automotive">Automotive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productBrand" class="form-label">Brand</label>
+                                            <input type="text" class="form-control" id="productBrand" placeholder="Enter brand name">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productStock" class="form-label">Stock Quantity *</label>
+                                            <input type="number" class="form-control" id="productStock" placeholder="Enter stock quantity" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="productWeight" class="form-label">Weight (kg)</label>
+                                            <input type="number" class="form-control" id="productWeight" placeholder="Enter weight" step="0.01">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="productTags" class="form-label">Tags</label>
+                                    <input type="text" class="form-control" id="productTags" placeholder="Enter tags separated by commas">
+                                    <small class="form-text text-muted">Separate multiple tags with commas</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Product Images</label>
+                                    <div class="file-upload">
+                                        <input type="file" class="file-upload-input" id="productImages" multiple accept="image/*">
+                                        <label for="productImages" class="file-upload-label">
+                                            <div>
+                                                <i class="fas fa-cloud-upload-alt fa-2x mb-2"></i>
+                                                <p class="mb-0">Click to upload or drag and drop</p>
+                                                <small class="text-muted">PNG, JPG, GIF up to 10MB</small>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="productActive" checked>
+                                        <label class="form-check-label" for="productActive">
+                                            Product is active
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="productFeatured">
+                                        <label class="form-check-label" for="productFeatured">
+                                            Featured product
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-3">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Save Product
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                                        <i class="fas fa-undo"></i> Reset
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-container fade-in-up">
+                            <h5 class="mb-3"><i class="fas fa-info-circle"></i> Product Guidelines</h5>
+                            <div class="alert alert-info">
+                                <h6>Tips for better product listings:</h6>
+                                <ul class="mb-0">
+                                    <li>Use clear, descriptive product names</li>
+                                    <li>Add detailed descriptions</li>
+                                    <li>Include high-quality images</li>
+                                    <li>Set competitive pricing</li>
+                                    <li>Use relevant tags for better search</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-container fade-in-up">
+                            <h5 class="mb-3"><i class="fas fa-chart-bar"></i> Product Statistics</h5>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <h4 class="text-primary">234</h4>
+                                    <small>Total Products</small>
+                                </div>
+                                <div class="col-6">
+                                    <h4 class="text-success">189</h4>
+                                    <small>Active Products</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle sidebar
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const overlay = document.getElementById('overlay');
+
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            
+            // On desktop, shift main content
+            if (window.innerWidth > 768) {
+                mainContent.classList.toggle('shifted');
+            } else {
+                // On mobile, show overlay
+                overlay.classList.toggle('active');
+            }
+        });
+
+        // Close sidebar when clicking overlay
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                overlay.classList.remove('active');
+                if (sidebar.classList.contains('active')) {
+                    mainContent.classList.add('shifted');
+                }
+            } else {
+                mainContent.classList.remove('shifted');
+            }
+        });
+
+        // Sidebar navigation
+        const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+        const contentSections = document.querySelectorAll('.content-section');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show target section
+                const targetSection = this.getAttribute('data-section');
+                if (targetSection) {
+                    const targetElement = document.getElementById(targetSection + '-section');
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                        
+                        // Update header title
+                        const headerTitle = document.querySelector('.header .navbar-brand');
+                        headerTitle.textContent = targetSection.charAt(0).toUpperCase() + targetSection.slice(1);
+                    }
+                } else {
+                    // Show dashboard by default
+                    document.getElementById('dashboard-section').classList.add('active');
+                    document.querySelector('.header .navbar-brand').textContent = 'Dashboard';
+                }
+                
+                // Close sidebar on mobile after selection
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Product form handling
+        const productForm = document.getElementById('productForm');
+        const fileUploadLabel = document.querySelector('.file-upload-label');
+        const fileUploadInput = document.getElementById('productImages');
+
+        // File upload drag and drop
+        fileUploadLabel.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+        });
+
+        fileUploadLabel.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+        });
+
+        fileUploadLabel.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            fileUploadInput.files = files;
+            updateFileUploadLabel(files);
+        });
+
+        fileUploadInput.addEventListener('change', function(e) {
+            updateFileUploadLabel(e.target.files);
+        });
+
+        function updateFileUploadLabel(files) {
+            const label = fileUploadLabel.querySelector('div');
+            if (files.length > 0) {
+                label.innerHTML = `
+                    <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
+                    <p class="mb-0">${files.length} file(s) selected</p>
+                    <small class="text-muted">Click to change files</small>
+                `;
+            } else {
+                label.innerHTML = `
+                    <i class="fas fa-cloud-upload-alt fa-2x mb-2"></i>
+                    <p class="mb-0">Click to upload or drag and drop</p>
+                    <small class="text-muted">PNG, JPG, GIF up to 10MB</small>
+                `;
+            }
+        }
+
+        // Product form submission
+        productForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const productData = {};
+            
+            // Collect form data
+            const inputs = this.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    productData[input.id] = input.checked;
+                } else if (input.type === 'file') {
+                    productData[input.id] = input.files;
+                } else {
+                    productData[input.id] = input.value;
+                }
+            });
+            
+            // Show success message
+            showNotification('Product saved successfully!', 'success');
+            
+            // Reset form
+            setTimeout(() => {
+                resetForm();
+            }, 1000);
+        });
+
+        // Reset form function
+        function resetForm() {
+            productForm.reset();
+            updateFileUploadLabel([]);
+            showNotification('Form reset successfully!', 'info');
+        }
+
+        // Show notification function
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 3000);
+        }
+
+        // Auto-generate SKU based on product name
+        document.getElementById('productName').addEventListener('input', function(e) {
+            const productName = e.target.value;
+            const skuField = document.getElementById('productSku');
+            
+            if (productName && !skuField.value) {
+                const sku = productName
+                    .toUpperCase()
+                    .replace(/[^A-Z0-9]/g, '')
+                    .substring(0, 8) + '-' + Math.random().toString(36).substr(2, 4).toUpperCase();
+                skuField.value = sku;
+            }
+        });
+
+        // Add fade-in animation to cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all dashboard cards and form containers
+        document.querySelectorAll('.dashboard-card, .form-container').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Make resetForm function global
+        window.resetForm = resetForm;
+    </script>
+</body>
+</html>

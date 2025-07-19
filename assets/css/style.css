@@ -11,7 +11,7 @@ img {
 }
 
 /* header Section */
-.header-area {
+/* .header-area {
     background: #E9EFEF;
     padding: 10px 0;
     position: fixed;
@@ -97,17 +97,20 @@ img {
     font-size: 20px;
     color: #10838D;
     padding-top: 5px;
-}
+} */
 
 /* end header Section */
 
+.main-content{
+    margin-top: 80px;
+}
 
 /* start banner section */
 .banner-area {
     background: #E9EFEF;
     height: calc(100vh - 80px);
     width: 100%;
-    margin-top: 80px;
+    
 }
 
 .banner-content {
@@ -263,9 +266,9 @@ a.puroo-readmore-btn i {
 
 /* video-area*/
 
-.video-area {
+/* .video-area {
     padding: 70px 0;
-}
+} */
 
 .video-area iframe {
     width: 100%;
@@ -273,7 +276,8 @@ a.puroo-readmore-btn i {
 }
 
 
-/* foo*/
+/* footer section */
+/* 
 footer {
     background: #E9EFEF;
     width: 100%;
@@ -337,4 +341,4 @@ footer .footer-text {
     font-weight: 500;
     text-transform: uppercase;
     padding: 0 10px;
-}
+} */

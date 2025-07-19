@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/images/puroo-fav.PNG" type="image/png">
+    <title>Puroo Furniture – About</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/about.css">
+
+    <style>
+        .open {
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        .search-open {
+            visibility: visible !important;
+            width: 200px !important;
+        }
+
+        .close {
+            display: none;
+        }
+
+        /**main content**/
+        .main-content {
+            margin-top: 80px;
+        }
+
+        /** start banner section **/
+
+        .about-banner-section {
+            color: #fff;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-banner-bg {
+            background-image: url('./assets/images/about-bannar.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .about-content-section {
+            margin: 50px 0;
+        }
+
+        .about-content {
+            margin-top: 50px;
+        }
+
+        .about-content-msg{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .img-container {
+            position: relative;
+        }
+
+        .img-container img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="header">
+                    <div class="menu-area">
+                        <div class="menu-icon">
+                            <i class="fa-solid fa-bars" onclick="toggleSidebar()"></i>
+                        </div>
+                        <div class="mainmenu" id="mainmenu">
+                            <ul id="navigation">
+                                <li><a href="shop.html">Shop</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="billing-terms-conditions.html">Billing Terms & Conditions</a></li>
+                                <li><a href="refund_returns.html">Refund and Returns Policy</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="./assets/images/puroo-web-final-logo.png" alt="Puroo" srcset="">
+                        </a>
+                    </div>
+
+
+                    <div class="search-area">
+                        <input type="search" name="" id="search" placeholder="keywords...">
+                        <span onclick="toggleSearchbar()"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span><a href="tel:+000000"><i class="fa-solid fa-phone"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <section class="about-banner-section about-banner-bg">
+            <div class="about-title">
+                <h1 class="display-4 fw-bold">About Us</h1>
+            </div>
+        </section>
+
+
+        <section class="about-content-section section-1">
+            <div class="container">
+                <div class="director-area about-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="img-container">
+                                <img src="./assets/images/md.jpg" alt="Managing Director">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-content-msg">
+                                <h2>Add Your Heading Text Here</h2>
+                                <h5>Managing Director</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                                    ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing
+                                    elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                                    ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing
+                                    elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="puroo-theme-area about-content">
+                    <div class="row">                        
+                        <div class="col-md-6">
+                            <div class="about-content-msg">
+                                <h2 class="fw-bold">Puroo Furniture</h2>
+                                <p>Begin with a concise introduction to Puroo Furniture, highlighting your
+                                    specialization in
+                                    high-quality, stylish, and functional furniture. Emphasize your commitment to
+                                    enhancing
+                                    living spaces with exceptional designs.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img-container">
+                                <img src="./assets/images/theme.jpg" alt="Modern Room">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="puro-mission-area about-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="img-container">
+                                <img src="./assets/images/mission.jpg" alt="Vintage Bedroom">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-content-msg">
+                                <h2 class="fw-bold">Mission</h2>
+                                <p>At Puroo Furniture, our mission is to transform houses into homes by providing
+                                    premium
+                                    furniture that combines comfort, style, and durability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="puroo-vision-area about-content">
+                    <div class="row">                        
+                        <div class="col-md-6">
+                            <div class="about-content-msg">
+                                <h2 class="fw-bold">Vision</h2>
+                                <p>We aspire to be a leading furniture brand recognized for innovation, quality
+                                    craftsmanship,
+                                    and exceptional customer service.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img-container">
+                                <img src="./assets/images/vision.jpg" alt="Wooden Chair and Cabinet">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <a href="" target="_blank">
+                <img src="./assets/images/puroo-web-final-logo-footer.png">
+            </a>
+            <ul class="social-footer">
+                <li><a href="https://www.facebook.com/mahabub.alam.1481"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li><a href=""><i class="fa-brands fa-square-instagram"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-text">
+            <div class="footer-menu">
+                <ul class="footer-nav">
+                    <li><a href="index.html">Shop</a></li>
+                    <li><a href="index2.html">About</a></li>
+                    <li><a href="index2.html">Billing Terms & Conditions</a></li>
+                    <li><a href="index2.html">Refund and Returns Policy</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/fontawesome.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('mainmenu');
+        sidebar.classList.toggle('open');
+    }
+    function toggleSearchbar() {
+        const sidebar = document.getElementById('search');
+        sidebar.classList.toggle('search-open');
+    }
+</script>
+
+</html>

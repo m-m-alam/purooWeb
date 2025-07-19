@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Puroo Furniture</title>
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="./assets/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/header.css">
+  <link rel="stylesheet" href="./assets/css/footer.css">
+  <link rel="stylesheet" href="./assets/css/contact.css">
+
+
+  <style>
+    .open {
+      display: block !important;
+      visibility: visible !important;
+    }
+
+    .search-open {
+      visibility: visible !important;
+      width: 200px !important;
+    }
+
+    .close {
+      display: none;
+    }
+
+     .main-content {
+            margin-top: 80px;
+        }
+
+       /** start banner section **/
+
+        .contact-banner-section {
+            color: #fff;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-banner-bg {
+            background-image: url('./assets/images/contact-us.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+
+    .contact-section {
+      padding: 4rem 0;
+    }
+
+    .contact-heading {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item i {
+      color: #13505c;
+      font-size: 1.25rem;
+      margin-right: 15px;
+      width: 25px;
+      /* Fixed width for icon alignment */
+      text-align: center;
+    }
+
+    .contact-item .info a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .map-section {
+      padding: 0 0 4rem;
+    }
+
+    .map-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="header-area">
+    <div class="container">
+      <div class="row">
+        <div class="header">
+          <div class="menu-area">
+            <div class="menu-icon">
+              <i class="fa-solid fa-bars" onclick="toggleSidebar()"></i>
+            </div>
+            <div class="mainmenu" id="mainmenu">
+              <ul id="navigation">
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="billing-terms-conditions.html">Billing Terms & Conditions</a></li>
+                <li><a href="refund_returns.html">Refund and Returns Policy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="logo">
+            <a href="">
+              <img src="./assets/images/puroo-web-final-logo.png" alt="Puroo" srcset="">
+            </a>
+          </div>
+
+
+          <div class="search-area">
+            <input type="search" name="" id="search" placeholder="keywords...">
+            <span onclick="toggleSearchbar()"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span><a href="tel:+000000"><i class="fa-solid fa-phone"></i></a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <section class="contact-banner-section contact-banner-bg">
+            <div class="about-title">
+                <h1>Contact Us</h1>
+            </div>
+        </section>
+
+         <section class="contact-section">
+    <div class="container">
+      <h2 class="contact-heading">Let's Talk</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span class="info"><a href="tel:+880123454545">+880123454545</a></span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span class="info"><a href="mailto:sales@puroofurniture.com">sales@puroofurniture.com</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="info">
+              <p class="mb-0"><strong>House 07 Road-2</strong></p>
+              <p class="mb-0">House 07 Road-2, Dhaka 1230</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="container">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9056004944883!2d90.39000961445582!3d23.75059639462831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8849b015111%3A0x7d06a4b1842e47c1!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1689403062000!5m2!1sen!2sus"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+  </main>
+
+
+ 
+
+  <footer>
+    <div class="footer-logo">
+      <a href="" target="_blank">
+        <img src="./assets/images/puroo-web-final-logo-footer.png">
+      </a>
+      <ul class="social-footer">
+        <li><a href="https://www.facebook.com/mahabub.alam.1481"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-square-instagram"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+    <div class="footer-text">
+      <div class="footer-menu">
+        <ul class="footer-nav">
+          <li><a href="index.html">Shop</a></li>
+          <li><a href="index2.html">About</a></li>
+          <li><a href="index2.html">Billing Terms & Conditions</a></li>
+          <li><a href="index2.html">Refund and Returns Policy</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/jquery-3.7.1.min.js"></script>
+  <script src="./assets/js/fontawesome.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('mainmenu');
+      sidebar.classList.toggle('open');
+    }
+    function toggleSearchbar() {
+      const sidebar = document.getElementById('search');
+      sidebar.classList.toggle('search-open');
+    }
+  </script>
+</body>
+
+</html>
